@@ -1,0 +1,10 @@
+{
+  "name": "TimeLapseMod",
+  "version": "0.0.1",
+  "title": "Time Lapse Mod",
+  "author": "MrP123",
+  "contact": "https://github.com/MrP123",
+  "homepage": "https://github.com/MrP123/TimeLapseMod",
+  "description": "A mod that takes screenshots to create time lapses",
+  "dependencies": ["base >= 0.11.0"]
+}
