@@ -39,7 +39,7 @@ game.onevent(defines.events.ontick, function(event)
   			game.player.print("screenshot taken on positon!")
   		else
   			game.player.print("ERROR!")
-  			game.player.print("Something really unexpected/terrible happend. This should never happen!")
+  			game.player.print("Something really unexpected/terrible happened. This should never happen!")
   			game.onevent(defines.events.ontick, nil) -- this is done so Factorio unsubscribes from the ontick event as it isn't needed if something goes wrong majorly and therefore improves performance
   			return
   		end
