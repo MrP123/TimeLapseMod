@@ -8,10 +8,16 @@
 
 -- this is the time difference in seconds between screenshots. This time difference isn't really accurate, as the amount of ticks per second vary depending on if the hardware is able to keep up with the game
 -- default: 300 which equals 5 minutes
-timeDifferenceCFG = 300
+timeDifferenceCFG = 10
 
 -- this is the amount of ticks per second; default: 60 for vanilla Factorio, but if any other mod changes the amount of ticks per second this will have to be changed accordingly or your timing will be off
 ticksPerSecondCFG = 60
+
+-- if this option is set to "true" the game time will be changed shortly while taking a screenshot so all screenshots are taken at noon; default: false
+onlyDayScreenshotsCFG = false
+
+-- if this option is set to "true" a message will be printed whenever a screenshot is taken
+printMessageCFG = false
 
 -- if this option is enabled all screenshots will be taken at the position of the player; centerOnPlayerCFG and centerOnPositionCFG can't be active at the same time;
 centerOnPlayerCFG = true
