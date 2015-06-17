@@ -8,7 +8,7 @@
 
 -- this is the time difference in seconds between screenshots. This time difference isn't really accurate, as the amount of ticks per second vary depending on if the hardware is able to keep up with the game
 -- default: 300 which equals 5 minutes
-timeDifferenceCFG = 10
+timeDifferenceCFG = 300
 
 -- this is the amount of ticks per second; default: 60 for vanilla Factorio, but if any other mod changes the amount of ticks per second this will have to be changed accordingly or your timing will be off
 ticksPerSecondCFG = 60
