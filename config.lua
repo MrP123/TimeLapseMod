@@ -8,7 +8,7 @@
 
 -- this is the time difference in seconds between screenshots. This time difference isn't really accurate, as the amount of ticks per second vary depending on if the hardware is able to keep up with the game
 -- default: 300 which equals 5 minutes
-timeDifferenceCFG = 10
+timeDifferenceCFG = 300
 
 -- this is the amount of ticks per second; default: 60 for vanilla Factorio, but if any other mod changes the amount of ticks per second this will have to be changed accordingly or your timing will be off
 ticksPerSecondCFG = 60
@@ -22,7 +22,7 @@ printMessageCFG = false
 -- if this option is enabled all screenshots will be taken at the position of the player; centerOnPlayerCFG and centerOnPositionCFG can't be active at the same time;
 centerOnPlayerCFG = true
 
--- if this option is enabled all screenshots will be taken at the specified positon; centerOnPlayerCFG and centerOnPositionCFG can't be active at the same time; default: { 0, 0 }
+-- if this option is enabled all screenshots will be taken at the specified positon; centerOnPlayerCFG and centerOnPositionCFG can't be active at the same time; default: false; { 0, 0 }
 centerOnPositionCFG = false
 positionCFG = { 0, 0 }	-- if the area at this position isn't loaded the screenshot will be black
 
@@ -43,3 +43,13 @@ showguiCFG = false
 
 -- if enabled the Entity Info will be visible on the screenshots; default: false
 showentityinfoCFG = false
+
+-- ======================================= --
+-- commands for Time Lapse Mod (by MrP123) --
+-- ======================================= --
+
+-- if centerOnPositionCFG is enabled you can set the current position to the player location with this command; this will NOT change the position in the config file and will therefore only work for the CURRENT session
+/c remote.call("TLM_commands", "setPositionPlayer")
+
+-- if centerOnPositionCFG is enabled you can set the current position to the a specified location with this command; this will NOT change the position in the config file and will therefore only work for the CURRENT session
+/c remote.call("TLM_commands", "setPositionXY", Your_X_Value_Here, Your_Y_Value_Here) -- for example: /c remote.call("TLM_commands", "setPositionXY", 10, 10)

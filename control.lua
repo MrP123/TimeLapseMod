@@ -7,7 +7,21 @@ game.oninit(function()
   glob.amount = 0
   glob.time = -1
   glob.shouldUpdate = false
-  end)
+
+  remote.addinterface("TLM_commands", {
+    -- "console command" to set the screenshot position to the current player position
+    setPositionPlayer = function()
+      positionCFG = game.player.position
+    end,
+
+    -- "console command" to set the screenshot position to the specified x and y value
+    setPositionXY = function(x, y)
+      positionCFG.x = x
+      positionCFG.y = y
+    end
+  })
+
+end)
 
 game.onevent(defines.events.ontick, function(event)
   if glob.shouldUpdate then
