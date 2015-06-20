@@ -49,7 +49,7 @@ showentityinfoCFG = false
 -- ======================================= --
 
 -- if centerOnPositionCFG is enabled you can set the current position to the player location with this command; this will NOT change the position in the config file and will therefore only work for the CURRENT session
-/c remote.call("TLM_commands", "setPositionPlayer")
+-- /c remote.call("TLM_commands", "setPositionPlayer")
 
 -- if centerOnPositionCFG is enabled you can set the current position to the a specified location with this command; this will NOT change the position in the config file and will therefore only work for the CURRENT session
-/c remote.call("TLM_commands", "setPositionXY", Your_X_Value_Here, Your_Y_Value_Here) -- for example: /c remote.call("TLM_commands", "setPositionXY", 10, 10)
+-- /c remote.call("TLM_commands", "setPositionXY", Your_X_Value_Here, Your_Y_Value_Here) -- for example: /c remote.call("TLM_commands", "setPositionXY", 10, 10)
