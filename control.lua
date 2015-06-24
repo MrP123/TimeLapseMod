@@ -73,7 +73,7 @@ game.onevent(defines.events.ontick, function(event)
 end)
 
 function genPathName(pathCFG, screenshotnameCFG, amount)
-	return pathCFG .. "/" .. screenshotnameCFG .. amount .. ".png"
+  return pathCFG .. "/" .. screenshotnameCFG .. string.format(numberFormatCFG, amount) .. ".png"
 end
 
 function makeNoon()

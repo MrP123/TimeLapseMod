@@ -8,7 +8,7 @@
 
 -- this is the time difference in seconds between screenshots. This time difference isn't really accurate, as the amount of ticks per second vary depending on if the hardware is able to keep up with the game
 -- default: 300 which equals 5 minutes
-timeDifferenceCFG = 300
+timeDifferenceCFG = 10
 
 -- this is the amount of ticks per second; default: 60 for vanilla Factorio, but if any other mod changes the amount of ticks per second this will have to be changed accordingly or your timing will be off
 ticksPerSecondCFG = 60
@@ -37,6 +37,9 @@ pathCFG = "TimeLapseMod"
 
 -- name of the screenshots; default: "screenshot"
 screenshotnameCFG = "screenshot"
+
+-- formatting string for the amount of screenshots taken; default: "%04d" --> for example screenshot number 1 will be called "screenshotname0001.png"
+numberFormatCFG = "%04d"
 
 -- if enabled the GUI of the game will be visible on the screenshots; default: false
 showguiCFG = false
