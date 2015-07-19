@@ -2,13 +2,13 @@ require "util"
 require "defines"
 require "config"
 
-game.oninit(function()
-  glob.tickCounter = 0
-  glob.amount = 0
-  glob.time = -1
-  glob.shouldUpdate = false
+game.on_init(function()
+  global.tickCounter = 0
+  global.amount = 0
+  global.time = -1
+  global.shouldUpdate = false
 
-  remote.addinterface("TLM_commands", {
+  remote.add_interface("TLM_commands", {
     -- "console command" to set the screenshot position to the current player position
     setPositionPlayer = function()
       positionCFG = game.player.position
@@ -23,17 +23,17 @@ game.oninit(function()
 
 end)
 
-game.onevent(defines.events.ontick, function(event)
-  if glob.shouldUpdate then
+game.on_event(defines.events.on_tick, function(event)
+  if global.shouldUpdate then
     restoreTime()
-    glob.time = -1
-    glob.shouldUpdate = false
+    global.time = -1
+    global.shouldUpdate = false
   end
 
-  glob.tickCounter = glob.tickCounter + 1
-	if glob.tickCounter / (ticksPerSecondCFG * game.speed) > timeDifferenceCFG then	-- this counter is necessary as the lua in Factorio doesn't have access to any libraries, so I can't keep track of time in any other way
-		glob.tickCounter = 0
-		glob.amount = glob.amount + 1
+  global.tickCounter = global.tickCounter + 1
+	if global.tickCounter / (ticksPerSecondCFG * game.speed) > timeDifferenceCFG then	-- this counter is necessary as the lua in Factorio doesn't have access to any libraries, so I can't keep track of time in any other way
+		global.tickCounter = 0
+		global.amount = global.amount + 1
 
     if centerOnPlayerCFG and centerOnPositionCFG then
       game.player.print("ERROR!")
@@ -54,14 +54,14 @@ game.onevent(defines.events.ontick, function(event)
     if centerOnPlayerCFG then
       makeNoon()
 
-      local pathName = genPathName(pathCFG, screenshotnameCFG, glob.amount)
-      game.takescreenshot{resolution = resolutionCFG, zoom = zoomCFG, path = pathName, showguiCFG, showentityinfoCFG}
+      local pathName = genPathName(pathCFG, screenshotnameCFG, global.amount)
+      game.take_screenshot{resolution = resolutionCFG, zoom = zoomCFG, path = pathName, showguiCFG, showentityinfoCFG}
       printMessage()
     elseif centerOnPositionCFG then
       makeNoon()
 
-      local pathName = genPathName(pathCFG, screenshotnameCFG, glob.amount)
-      game.takescreenshot{position = positionCFG, resolution = resolutionCFG, zoom = zoomCFG, path = pathName, showguiCFG, showentityinfoCFG}
+      local pathName = genPathName(pathCFG, screenshotnameCFG, global.amount)
+      game.take_screenshot{position = positionCFG, resolution = resolutionCFG, zoom = zoomCFG, path = pathName, showguiCFG, showentityinfoCFG}
       printMessage()
     else
       game.player.print("ERROR!")
@@ -78,17 +78,17 @@ end
 
 function makeNoon()
   if onlyDayScreenshotsCFG then
-    glob.time = game.daytime
+    global.time = game.daytime
     game.daytime = 0
-    glob.shouldUpdate = true
+    global.shouldUpdate = true
   else
-    glob.time = -1
+    global.time = -1
   end
 end
 
 function restoreTime()
-  if glob.time ~= -1 then
-    game.daytime = glob.time
+  if global.time ~= -1 then
+    game.daytime = global.time
   end
 end
 
