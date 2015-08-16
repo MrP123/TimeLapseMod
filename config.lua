@@ -38,6 +38,9 @@ pathCFG = "TimeLapseMod"
 -- name of the screenshots; default: "screenshot"
 screenshotnameCFG = "screenshot"
 
+-- the type of image file that will be created; default: ".png" --> tested file types: ".png" | ".jpg" | ".gif"
+fileTypeCFG = ".png"
+
 -- formatting string for the amount of screenshots taken; default: "%04d" --> for example screenshot number 1 will be called "screenshotname0001.png"
 numberFormatCFG = "%04d"
 

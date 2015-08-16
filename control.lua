@@ -54,13 +54,13 @@ game.on_event(defines.events.on_tick, function(event)
     if centerOnPlayerCFG then
       makeNoon()
 
-      local pathName = genPathName(pathCFG, screenshotnameCFG, global.amount)
+      local pathName = genPathName(pathCFG, screenshotnameCFG, global.amount, fileTypeCFG)
       game.take_screenshot{resolution = resolutionCFG, zoom = zoomCFG, path = pathName, showguiCFG, showentityinfoCFG}
       printMessage()
     elseif centerOnPositionCFG then
       makeNoon()
 
-      local pathName = genPathName(pathCFG, screenshotnameCFG, global.amount)
+      local pathName = genPathName(pathCFG, screenshotnameCFG, global.amount, fileTypeCFG)
       game.take_screenshot{position = positionCFG, resolution = resolutionCFG, zoom = zoomCFG, path = pathName, showguiCFG, showentityinfoCFG}
       printMessage()
     else
@@ -72,8 +72,8 @@ game.on_event(defines.events.on_tick, function(event)
   end
 end)
 
-function genPathName(pathCFG, screenshotnameCFG, amount)
-  return pathCFG .. "/" .. screenshotnameCFG .. string.format(numberFormatCFG, amount) .. ".png"
+function genPathName(pathCFG, screenshotnameCFG, amount, fileTypeCFG)
+  return pathCFG .. "/" .. screenshotnameCFG .. string.format(numberFormatCFG, amount) .. fileTypeCFG
 end
 
 function makeNoon()
