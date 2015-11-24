@@ -2,7 +2,7 @@ require "util"
 require "defines"
 require "config"
 
-game.on_init(function()
+script.on_init(function()
   global.tickCounter = 0
   global.amount = 0
   global.time = -1
@@ -21,9 +21,10 @@ game.on_init(function()
     end
   })
 
+  script.on_event(defines.game.tick, tick)
 end)
 
-game.on_event(defines.events.on_tick, function(event)
+function tick(event)
   if global.shouldUpdate then
     restoreTime()
     global.time = -1
@@ -70,7 +71,7 @@ game.on_event(defines.events.on_tick, function(event)
       return
     end
   end
-end)
+end
 
 function genPathName(pathCFG, screenshotnameCFG, amount, fileTypeCFG)
   return pathCFG .. "/" .. screenshotnameCFG .. string.format(numberFormatCFG, amount) .. fileTypeCFG
