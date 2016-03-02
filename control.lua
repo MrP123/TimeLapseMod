@@ -2,9 +2,8 @@ require "util"
 require "defines"
 require "config"
 
-script.on_init(function()
-  global.tickCounter = 0
-  global.amount = 0
+
+function load()
   global.time = -1
   global.shouldUpdate = false
 
@@ -20,9 +19,18 @@ script.on_init(function()
       positionCFG.y = y
     end
   })
+  script.on_event(defines.events.on_tick, tick)
+end
 
-  script.on_event(defines.game.tick, tick)
-end)
+function init()
+  -- Only reset counters on one time startup, so your screenshots carry on and don't overwrite
+  global.tickCounter = 0
+  global.amount = 0
+  load()
+end
+
+script.on_init(init) -- Run on map generation
+script.on_load(load) -- Run on save / load
 
 function tick(event)
   if global.shouldUpdate then
@@ -32,15 +40,15 @@ function tick(event)
   end
 
   global.tickCounter = global.tickCounter + 1
-	if global.tickCounter / (ticksPerSecondCFG * game.speed) > timeDifferenceCFG then	-- this counter is necessary as the lua in Factorio doesn't have access to any libraries, so I can't keep track of time in any other way
-		global.tickCounter = 0
-		global.amount = global.amount + 1
+  if global.tickCounter / (ticksPerSecondCFG * game.speed) > timeDifferenceCFG then -- this counter is necessary as the lua in Factorio doesn't have access to any libraries, so I can't keep track of time in any other way
+    global.tickCounter = 0
+    global.amount = global.amount + 1
 
     if centerOnPlayerCFG and centerOnPositionCFG then
       game.player.print("ERROR!")
       game.player.print("centerOnPlayer and centerOnPositon are enabled at the same time. Please check your config.lua file")
       game.player.print("Please change your config.lua file and RESTART Factorio. This message will only be shown ONCE")
-		  game.onevent(defines.events.ontick, nil) -- this is done so Factorio unsubscribes from the ontick event as it isn't needed if the screenshot ability doesn't work and therefore improves performance
+      game.onevent(defines.events.ontick, nil) -- this is done so Factorio unsubscribes from the ontick event as it isn't needed if the screenshot ability doesn't work and therefore improves performance
       return
     end
 
@@ -48,7 +56,7 @@ function tick(event)
       game.player.print("ERROR!")
       game.player.print("centerOnPlayer and centerOnPositon are disabled at the same time. Please check your config.lua file")
       game.player.print("Please change your config.lua file and RESTART Factorio. This message will only be shown ONCE")
-		  game.onevent(defines.events.ontick, nil) -- this is done so Factorio unsubscribes from the ontick event as it isn't needed if the screenshot ability doesn't work and therefore improves performance
+      game.onevent(defines.events.ontick, nil) -- this is done so Factorio unsubscribes from the ontick event as it isn't needed if the screenshot ability doesn't work and therefore improves performance
       return
     end
 
@@ -67,7 +75,7 @@ function tick(event)
     else
       game.player.print("ERROR!")
       game.player.print("Something really unexpected/terrible happened. This should never happen!")
-  	  game.onevent(defines.events.ontick, nil) -- this is done so Factorio unsubscribes from the ontick event as it isn't needed if something goes wrong majorly and therefore improves performance
+      game.onevent(defines.events.ontick, nil) -- this is done so Factorio unsubscribes from the ontick event as it isn't needed if something goes wrong majorly and therefore improves performance
       return
     end
   end
