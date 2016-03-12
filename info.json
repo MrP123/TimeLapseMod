@@ -6,5 +6,5 @@
   "contact": "https://github.com/MrP123",
   "homepage": "https://github.com/MrP123/TimeLapseMod",
   "description": "A mod that takes screenshots to create time lapses",
-  "dependencies": ["base >= 0.12.11"]
+  "dependencies": ["base >= 0.12.17"]
 }
