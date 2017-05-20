@@ -1,6 +1,4 @@
-require "util"
-require "defines"
-require "config"
+require("config")
 
 
 function load()
