@@ -1,6 +1,8 @@
 # TimeLapseMod
 A mod for [Factorio](http://www.factorio.com) which takes screenshots in specific intervals to create time lapses out of
 
+Please take a look at the config.lua file. This file contains all the settings that can be changed with this mod and also explains all those settings.
+
 License
 =======
 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />
