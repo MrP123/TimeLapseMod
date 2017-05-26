@@ -2,7 +2,10 @@
 -- config for Time Lapse Mod (by MrP123) --
 -- ===================================== --
 
--- disclaimers:
+-- SCREENSHOT LOCATION:
+-- the screenshots will be saved in the script-output directory (default: C:\Users\USERNAME\AppData\Roaming\Factorio\script-output) under a subdirectory called TimeLapseMod
+
+-- DISCLAIMERS:
 -- if part of the area of the screenshot isn't loaded yet it will be black
 -- if the area of the game that is on one screenshot is too big everything that is far away from the player will look very bad, this only happens if centerOnPlayerCFG is enabled
 
